@@ -1,5 +1,5 @@
-import { Button } from "../feedback-options/feedbackOptions.styled";
-import { ButtonContainer } from "../feedback-options/feedbackOptions.styled";
+import { Button } from '../feedback-options/feedbackOptions.styled';
+import { ButtonContainer } from '../feedback-options/feedbackOptions.styled';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
@@ -9,9 +9,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
           key={option}
           type="button"
           onClick={() => {
-            {
-              onLeaveFeedback(option);
-            }
+            onLeaveFeedback(option)
           }}
         >
           {option}
