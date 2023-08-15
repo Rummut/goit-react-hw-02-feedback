@@ -1,9 +1,6 @@
-import { Title } from "./SectionTitle.Styled"
-
-
 export const Section = ({ title, children }) => {
     return (
-        <><Title>{title}</Title> 
+        <><h2>{title}</h2> 
         {children}</>
     )
 }
