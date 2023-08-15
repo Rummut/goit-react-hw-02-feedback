@@ -1,4 +1,4 @@
-import { Title } from "../section-title/SectionTitle.Styled"
+import { Title } from "./SectionTitle.Styled"
 
 
 export const Section = ({ title, children }) => {
