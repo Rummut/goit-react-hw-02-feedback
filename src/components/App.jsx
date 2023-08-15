@@ -1,51 +1,59 @@
 import { Component } from 'react';
-import { FeedbackResults } from './feedback/FeedbackResults';
+import { Statistics } from './feedback/statistic/Statistics';
+import { FeedbackOptions } from './feedback/feedback-options/FeedbackOptions';
+import { Section } from './feedback/section-title/SectionTitle';
+import { Notification } from './feedback/notification/Notification';
+import { Container } from './App.styled';
+import { GlobalStyle } from './GlobalStyle';
 
 export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
-    total: 0,
-    percentage: 0,
   };
 
   handleClick = type => {
     this.setState(prevState => {
       return {
         [type]: prevState[type] + 1,
-        total: this.countTotalFeedback(),
-        percentage: this.countPositiveFeedbackPercentage()
       };
     });
   };
 
   countTotalFeedback = () => {
-    const { good, neutral, bad } = this.state
-    return good + neutral + bad
-  }
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
 
   countPositiveFeedbackPercentage = () => {
-    const { good } = this.state
-    return Number.parseInt((good/this.countTotalFeedback())*100)
-  }
+    const { good } = this.state;
+    return Number.parseInt((good / this.countTotalFeedback()) * 100);
+  };
 
   render() {
+    const total = this.countTotalFeedback();
+    const percentage = this.countPositiveFeedbackPercentage();
     return (
-      <>
-        <h1>Please leave feedback</h1>
-
-        <button type="button" onClick={() => {this.handleClick("good")}}>
-          Good
-        </button>
-        <button type="button" onClick={() => {this.handleClick("neutral")}}>
-          Neutral
-        </button>
-        <button type="button" onClick={() => {this.handleClick("bad")}}>
-          Bad
-        </button>
-        <FeedbackResults state={this.state} ></FeedbackResults>
-      </>
+      <Container>
+        <Section title={'Please leave feedback'}>
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.handleClick}
+          ></FeedbackOptions>
+          {total === 0 ? (
+            <Notification message={'There is no feedback'}></Notification>
+          ) : (
+            <Statistics
+              state={this.state}
+              total={total}
+              percentage={percentage}
+            ></Statistics>
+          )}
+        </Section>
+        <GlobalStyle />
+      </Container>
+      
     );
   }
 }

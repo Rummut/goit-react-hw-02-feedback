@@ -1,4 +1,4 @@
-export const FeedbackResults = ({ state: { good, neutral, bad, total, percentage } }) => {
+export const Statistics  = ({ state: { good, neutral, bad}, total, percentage }) => {
   return (
     <>
       <h2>Statistic</h2>
