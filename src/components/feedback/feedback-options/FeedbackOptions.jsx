@@ -1,5 +1,5 @@
-import { Button } from "../section-title/SectionTitle.Styled";
-import { ButtonContainer } from "./feedbackOptions.styled";
+import { Button } from "../feedback-options/feedbackOptions.styled";
+import { ButtonContainer } from "../feedback-options/feedbackOptions.styled";
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
