@@ -1,4 +1,4 @@
-import { Button } from "../section-title/SectionTitle.styled";
+import { Button } from "../section-title/SectionTitle.Styled";
 import { ButtonContainer } from "./feedbackOptions.styled";
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
