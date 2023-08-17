@@ -1,8 +1,9 @@
-import { TitleStatistic } from "./SectionTitle.Styled"
+
+
 
 export const Section = ({ title, children }) => {
     return (
-        <><TitleStatistic>{title}</TitleStatistic> 
+        <><h2>{title}</h2> 
         {children}</>
     )
 }
